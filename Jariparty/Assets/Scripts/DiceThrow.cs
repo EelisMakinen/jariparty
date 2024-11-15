@@ -1,10 +1,13 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class DiceThrow : MonoBehaviour
 {
     public float throwForce = 12f;  // Adjust for the force applied when throwing the dice
     public float torqueForce = 10f; // Adjust for the torque applied to spin the dice
     public bool canthrow = true;
+    public int Value = 0;
 
     private Rigidbody rb;
 
@@ -53,17 +56,21 @@ public class DiceThrow : MonoBehaviour
             if (z > 360) { z -= 360; }
              
            
-            if (x == 270 && y == -180) { } //yksi
-            if (x == 180 && z == 180) { } // kaksi
-            if (x == 180 && z == 90) { } // kolme
-            if (x == 540 && z == 270) { } // neljä
-            if (x ==540 && z == 360) { } // viisi
-            if (x == 810 && y == -180) { } // kuusi
+            if (x == 270 && y == -180) { Value = 1; } 
+            if (x == 180 && z == 180) { Value = 2; }
+            if (x == 180 && z == 90) { Value = 3; }
+            if (x == 540 && z == 270) { Value = 4; }
+            if (x == 540 && z == 360) { Value = 5; }
+            if (x == 810 && y == -180) { Value = 6; }
+
+            if (Value == 1) { Console.WriteLine("numero 1"); }
+
+           
 
 
         
         
-        
+       
         
         
         }
