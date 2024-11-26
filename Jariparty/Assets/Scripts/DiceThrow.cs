@@ -8,7 +8,8 @@ public class DiceThrow : MonoBehaviour
     public float torqueForce = 10f; // Adjust for the torque applied to spin the dice
     public bool canthrow = true;
     public int Value = 0;
-
+    private string lastsidehit;
+    public void OnSideHit(string sidenumber) {lastsidehit = sidenumber; }
     private Rigidbody rb;
 
     void Start()
@@ -44,6 +45,14 @@ public class DiceThrow : MonoBehaviour
     }
     private void Update()
     {
+        if (rb.IsSleeping() ) {
+        if (lastsidehit == "tulos 1") { Value = 1; }
+        else if (lastsidehit == "tulos 2") { Value = 2; }
+        else if (lastsidehit == "tulos 3") { Value = 3; }
+        else if (lastsidehit == "tulos 4") { Value = 4; }
+        else if (lastsidehit == "tulos 5") { Value = 5; }
+        else if (lastsidehit == "tulos 6") { Value = 6; }
+        }
         if (rb.IsSleeping() ) { canthrow = true;
             int x = Mathf.RoundToInt(rb.rotation.eulerAngles.x);
             int y = Mathf.RoundToInt(rb.rotation.eulerAngles.y);
