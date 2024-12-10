@@ -10,6 +10,7 @@ public class DiceThrow : MonoBehaviour
     public int Value = 0;
     private string lastsidehit;
     public void OnSideHit(string sidenumber) {lastsidehit = sidenumber; }
+    public event EventHandler<int> Diceresultevent;
     private Rigidbody rb;
 
     public bool isValueSetAfterThrow { get; private set; }
@@ -93,6 +94,7 @@ public class DiceThrow : MonoBehaviour
             Debug.Log("Value: "+ Value);
             isValueSetAfterThrow = true;
             canthrow = true;
+            Diceresultevent.Invoke(this, Value);
         }
     }
 }
