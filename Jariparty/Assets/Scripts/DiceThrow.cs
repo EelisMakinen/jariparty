@@ -9,9 +9,17 @@ public class DiceThrow : MonoBehaviour
     public bool canthrow = true;
     public int Value = 0;
     private string lastsidehit;
-    public void OnSideHit(string sidenumber) {lastsidehit = sidenumber; }
+    public void OnSideHit(string sidenumber)
+    {lastsidehit = sidenumber;
+    hitsounds.Play();
+    
+    
+    
+    
+    }
     public event EventHandler<int> Diceresultevent;
     private Rigidbody rb;
+    private AudioSource hitsounds;
 
     public bool isValueSetAfterThrow { get; private set; }
 
@@ -19,6 +27,7 @@ public class DiceThrow : MonoBehaviour
     {
         // Get the Rigidbody component attached to this GameObject
         rb = GetComponent<Rigidbody>();
+        hitsounds = GetComponent<AudioSource>();    
     }
 
     public void ThrowDice()
@@ -94,7 +103,10 @@ public class DiceThrow : MonoBehaviour
             Debug.Log("Value: "+ Value);
             isValueSetAfterThrow = true;
             canthrow = true;
-            Diceresultevent.Invoke(this, Value);
+            if  (Diceresultevent != null && Diceresultevent.GetInvocationList().Length > 0)
+            {
+                Diceresultevent.Invoke(this, Value);
+            }
         }
     }
 }
