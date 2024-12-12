@@ -6,12 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/diddy party.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/Scenes/mainmenu.unity
+    guid: 5c30891f5b08d2743bb589bc60fa13c1
+  - enabled: 1
+    path: Assets/Scenes/MainGame.unity
+    guid: c5865d01a8c85ed4587046ed4d34f353
   - enabled: 1
     path: Assets/Scenes/FinishLine.unity
     guid: f014c4330ec45fd48a0d3d18c0d94ac6
-  - enabled: 1
-    path: Assets/Scenes/mainmenu.unity
-    guid: 5c30891f5b08d2743bb589bc60fa13c1
   m_configObjects: {}
