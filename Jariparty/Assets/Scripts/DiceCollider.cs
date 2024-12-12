@@ -7,7 +7,14 @@ public class DiceCollider : MonoBehaviour
 {
     public void OnTriggerEnter(Collider other)
     {
-        GetComponentInParent<DiceThrow>().OnSideHit(gameObject.name);
+        if (other.CompareTag("Ground"))
+        {
+            print("gameObject.name" + gameObject.name);
+
+            GetComponentInParent<DiceThrow>().OnSideHit(gameObject.name);
+        }
+        
+
     }
 
     // Start is called before the first frame update
@@ -21,4 +28,6 @@ public class DiceCollider : MonoBehaviour
     {
         
     }
+
+   
 }

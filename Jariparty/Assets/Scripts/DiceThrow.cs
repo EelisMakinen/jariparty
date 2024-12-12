@@ -92,8 +92,7 @@ public class DiceThrow : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (rb.IsSleeping() && !isValueSetAfterThrow)
-        {
+        if (rb.IsSleeping() && !canthrow) { 
             if (lastsidehit == "tulos 1") { Value = 1; }
             else if (lastsidehit == "tulos 2") { Value = 2; }
             else if (lastsidehit == "tulos 3") { Value = 3; }
