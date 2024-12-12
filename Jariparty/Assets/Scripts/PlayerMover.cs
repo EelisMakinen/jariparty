@@ -5,6 +5,7 @@ using System.Numerics;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 using UnityEngine.Splines;
+using UnityEngine.SceneManagement;
 
 public class PlayerMover : MonoBehaviour
 {
@@ -62,6 +63,10 @@ public class PlayerMover : MonoBehaviour
                     currentPoint = targetPoint;
                 }
             }
+        }
+        if(currentPoint == 58)
+        {
+            SceneManager.LoadScene("FinishLine");
         }
     }
 }
